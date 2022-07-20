@@ -8,7 +8,8 @@ function Item({ item, onUpdateItem, onDeleteItem }) {
       .then((r) => r.json())
       .then(() => onDeleteItem(item));
   }
-   function handleAddToCartClick() {
+  function handleAddToCartClick(){
+
 
     fetch(`http://localhost:4000/items/${item.id}`, {
       method: "PATCH",
@@ -22,10 +23,10 @@ function Item({ item, onUpdateItem, onDeleteItem }) {
       .then((r) => r.json())
       .then((updatedItem) => onUpdateItem(updatedItem));
   }
-
+}
 
     console.log("clicked item:", item);
-   }
+   
 
 
 
@@ -38,7 +39,7 @@ function handleDeleteClick() {
 }
 
 
-  return (
+   return (
     <li className={item.isInCart ? "in-cart" : ""}>
       <span>{item.name}</span>
       <span className="category">{item.category}</span>
